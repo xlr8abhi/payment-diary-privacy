@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Payment Diary</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F0EBE3;
+      --surface:   #FAF7F4;
+      --primary:   #E8593C;
+      --primary-s: #FDECEA;
+      --text:      #1A1714;
+      --muted:     #7A756F;
+      --border:    #E2D9D0;
+      --radius:    16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 80px;
+    }
+
+    .hero {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--primary-s);
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .app-icon svg { width: 36px; height: 36px; }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-s);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,89,60,0.2);
+    }
+
+    .badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 680px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+    }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .summary-card .label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .summary-card .desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #3D3A36;
+      margin-bottom: 12px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .highlight-box {
+      background: var(--primary-s);
+      border: 1px solid rgba(232,89,60,0.2);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #7A2010;
+      line-height: 1.65;
+    }
+
+    .row-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .row-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .row-item:first-child { padding-top: 0; }
+
+    .row-item .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .row-item .ri-label {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+
+    .row-item .ri-desc {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .warning-box {
+      background: #FFF8E7;
+      border: 1px solid #F5D97A;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #7A5C00;
+      line-height: 1.65;
+    }
+
+    footer {
+      max-width: 680px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    footer .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    footer .contact-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    footer .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    footer .contact-card a {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 12px;
+    }
+
+    footer .fine {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      .summary { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 26px; }
+      .section { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="app-icon">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="8" width="22" height="16" rx="3" fill="#E8593C" opacity="0.5"/>
+        <rect x="10" y="12" width="22" height="16" rx="3" fill="#E8593C"/>
+      </svg>
+    </div>
+    <h1>Payment Diary</h1>
+    <p class="subtitle">Eliminate Payment Confusion</p>
+    <span class="badge">Privacy Policy</span>
+  </div>
+
+  <div class="summary">
+    <div class="summary-card">
+      <div class="label">Local Data Only</div>
+      <div class="desc">Your financial data never leaves your device</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">No Tracking</div>
+      <div class="desc">No analytics, no profiling, no surveillance</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Ads Disclosed</div>
+      <div class="desc">AdMob serves ads — fully disclosed here</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <p class="updated">Last updated: March 16, 2026</p>
+
+    <!-- Overview -->
+    <div class="section">
+      <div class="section-label">Overview</div>
+      <h2>The short version</h2>
+      <p>Payment Diary is a personal finance tracker that stores all your financial data locally on your device. The app uses Google AdMob to display ads, which requires an internet connection and involves limited data collection by Google for ad serving purposes.</p>
+      <div class="highlight-box">
+        Your financial data — contacts, transactions, notes — is never collected, transmitted, or shared by us. It stays on your device. The only data collection that occurs is by Google AdMob for ad serving, which is described in detail below.
+      </div>
+    </div>
+
+    <!-- Data collected -->
+    <div class="section">
+      <div class="section-label">Data</div>
+      <h2>What we collect</h2>
+      <p>Payment Diary stores the following data <strong>locally on your device only</strong>, inside a private Room database that no other app or service can access:</p>
+
+      <div style="margin-top: 16px;">
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Contact names</div>
+            <div class="ri-desc">Names of people you track payments with. Stored locally, never synced.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Transaction amounts</div>
+            <div class="ri-desc">Amounts lent or borrowed. Stored locally, never synced.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Transaction notes &amp; dates</div>
+            <div class="ri-desc">Optional notes and timestamps you add to transactions. Stored locally, never synced.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Your profile name</div>
+            <div class="ri-desc">The name you set in the app. Stored locally, never synced.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advertising -->
+    <div class="section">
+      <div class="section-label">Advertising</div>
+      <h2>Ads &amp; Google AdMob</h2>
+      <p>Payment Diary displays advertisements served by <strong>Google AdMob</strong>. The app shows two types of ads — a banner ad on the home screen and an interstitial ad at natural pause points.</p>
+
+      <div class="warning-box">
+        Google AdMob may collect certain device information to serve relevant ads. This data is collected and processed by Google, not by us. We do not receive, store, or have access to any of this data.
+      </div>
+
+      <p>The data AdMob may collect includes:</p>
+
+      <div style="margin-top: 16px;">
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Advertising ID</div>
+            <div class="ri-desc">Google's resettable device identifier used for ad targeting. You can reset or opt out of this in your device Settings → Google → Ads.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">IP address</div>
+            <div class="ri-desc">Used by Google to determine approximate location for ad relevance.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Device information</div>
+            <div class="ri-desc">Device model, OS version, and app version for ad compatibility and frequency capping.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Ad interaction data</div>
+            <div class="ri-desc">Whether an ad was viewed or clicked, used by Google to measure ad performance.</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px;">For full details on how Google handles this data, see <a href="https://policies.google.com/privacy" style="color: var(--primary);">Google's Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543" style="color: var(--primary);">AdMob's data practices</a>.</p>
+
+      <p>To opt out of personalized ads, go to your device <strong>Settings → Google → Ads → Opt out of Ads Personalization</strong>.</p>
+    </div>
+
+    <!-- Network -->
+    <div class="section">
+      <div class="section-label">Network</div>
+      <h2>Internet access</h2>
+      <p>Payment Diary requires the <code>INTERNET</code> permission solely to load and display advertisements via Google AdMob. This permission is not used for any other purpose — your financial data is never transmitted over the internet.</p>
+    </div>
+
+    <!-- Third parties -->
+    <div class="section">
+      <div class="section-label">Third Parties</div>
+      <h2>Do we share your data?</h2>
+      <p>We do not share your financial data with anyone. The only third-party SDK in this app is Google AdMob, which operates independently for ad serving purposes as described above. Payment Diary contains:</p>
+
+      <div style="margin-top: 16px;">
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">No analytics SDKs</div>
+            <div class="ri-desc">No Firebase Analytics, no Mixpanel, no Amplitude.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Google AdMob</div>
+            <div class="ri-desc">Used for displaying banner and interstitial ads. See Advertising section above.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">No crash reporting</div>
+            <div class="ri-desc">No Crashlytics, no Sentry. Crashes stay on your device.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">No cloud sync</div>
+            <div class="ri-desc">No Google Drive sync, no Firebase, no remote backup of your data.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data deletion -->
+    <div class="section">
+      <div class="section-label">Your Rights</div>
+      <h2>Deleting your data</h2>
+      <p>You have full control over your financial data at all times. You can:</p>
+      <div style="margin-top: 16px;">
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Delete individual records</div>
+            <div class="ri-desc">Remove any transaction or contact from within the app at any time.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Uninstall to wipe everything</div>
+            <div class="ri-desc">Uninstalling the app permanently deletes all local data. Since your financial data is never stored remotely, uninstalling is a complete wipe.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Clear app data</div>
+            <div class="ri-desc">Use the built-in <strong>Clear Data</strong> option inside the app under Settings → Danger Zone.</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="dot"></div>
+          <div>
+            <div class="ri-label">Reset your Advertising ID</div>
+            <div class="ri-desc">Go to Settings → Google → Ads → Reset Advertising ID to disconnect your device from previous ad history.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Children -->
+    <div class="section">
+      <div class="section-label">Children</div>
+      <h2>Children's privacy</h2>
+      <p>Payment Diary is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has used this app, please contact us so we can take appropriate action.</p>
+    </div>
+
+    <!-- Changes -->
+    <div class="section">
+      <div class="section-label">Updates</div>
+      <h2>Changes to this policy</h2>
+      <p>If this privacy policy changes in the future, the updated version will be posted at this URL with a revised date at the top. Changes may occur if new features are added or if our use of third-party services changes.</p>
+      <p>Continued use of the app after any changes constitutes acceptance of the updated policy.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="contact-card">
+      <h3>Questions?</h3>
+      <p>If you have any questions about this privacy policy, reach out directly.</p>
+      <a href="mailto:abhi4dev@outlook.com">abhi4dev@outlook.com</a>
+    </div>
+    <p class="fine">
+      Payment Diary is developed independently by Abhishek Maddheshiya.<br/>
+      This policy applies to the Android application available on Google Play.<br/><br/>
+      © 2026 Payment Diary. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
